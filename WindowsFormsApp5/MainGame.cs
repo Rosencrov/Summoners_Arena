@@ -67,7 +67,7 @@ namespace WindowsFormsApp5
         }
         private void btnIntroduction_Click(object sender, EventArgs e)
         {
-            var Introduction = new Introduction();
+            var Introduction = new Introduction(true);
             Introduction.Show();
         }
 

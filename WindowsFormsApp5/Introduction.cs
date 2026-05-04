@@ -15,10 +15,13 @@ namespace WindowsFormsApp5
     {
         private SoundPlayer bgMusic;
         private SoundPlayer bgMusic1;
-        public Introduction()
+        private bool openedFromMainGame;
+
+        public Introduction(bool fromMainGame = false)
         {
             InitializeComponent();
-            // Check if MainGame form is active
+            openedFromMainGame = fromMainGame;
+
             bgMusic = new SoundPlayer("Twin Musicom-NESTheme.wav");
             bgMusic1 = new SoundPlayer("TwinMusicomNESBoss.wav");
         }
@@ -27,6 +30,9 @@ namespace WindowsFormsApp5
         {
             timer1.Start();
             bgMusic.PlayLooping();
+
+            btnBackToMainGame.Visible = !openedFromMainGame;
+            btnReturnToMainGame.Visible = openedFromMainGame;
         }
 
         private void btnBackToMainGame_Click(object sender, EventArgs e)
