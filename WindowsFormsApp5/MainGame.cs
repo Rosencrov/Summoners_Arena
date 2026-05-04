@@ -997,17 +997,18 @@ namespace WindowsFormsApp5
         private void btnEnchant1_Click(object sender, EventArgs e)
         {
             charges3++;
+            int damage = Skill.Enchant();
 
-            if(charges3 <= 3)
+            if (charges3 <= 3)
             {
                 //Recoil
                 p1Heart = p1Heart - 3;
                 
                 //Actual skill
                 MessageBox.Show("Players may cast 2 consecutive skills");
-                p2Heart = p2Heart - (Skill.Enchant());
+                p2Heart = p2Heart - damage;
 
-                if (Skill.Enchant() == 0)
+                if (damage == 0)
                 {
                     MessageBox.Show("Enchant didn't deal damage");
                 }
@@ -1873,17 +1874,18 @@ namespace WindowsFormsApp5
         private void btnEnchant2_Click(object sender, EventArgs e)
         {
             charges4++;
+            int damage = Skill.Enchant();
 
-            if(charges4 <= 3)
+            if (charges4 <= 3)
             {
                 //recoil
                 p2Heart = p2Heart - 3;               
 
                 //Actual skill
                 MessageBox.Show("Players may cast 2 consecutive skills");
-                p1Heart = p1Heart - (Skill.Enchant());
+                p1Heart = p1Heart - damage;
 
-                if (Skill.Enchant() == 0)
+                if (damage == 0)
                 {
                     MessageBox.Show("Enchant didn't deal damage");
                 }
