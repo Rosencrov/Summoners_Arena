@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
-using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp5
@@ -60,9 +59,23 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //bgMusic.Stop();
+            //var MainMenu = new Main_menu();
+            //MainMenu.Show();
+            //this.Close();
             bgMusic.Stop();
-            var MainMenu = new Main_menu();
-            MainMenu.Show();
+            bgMusic.Dispose();
+
+            this.Hide();
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f is Main_menu menu)
+                {
+                    menu.Show();
+                    break;
+                }
+            }
             this.Close();
         }
         private void btnIntroduction_Click(object sender, EventArgs e)
